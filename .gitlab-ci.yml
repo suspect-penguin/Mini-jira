@@ -1,0 +1,38 @@
+image: node:22
+
+stages:
+  - install
+  - lint
+  - typecheck
+  - build
+
+install:
+  stage: install
+  tags:
+    - students-buildkit-medium
+  script:
+    - npm ci --cache .npm --prefer-offline
+
+lint:
+  stage: lint
+  tags:
+    - students-buildkit-medium
+  script:
+    - npm ci --cache .npm --prefer-offline
+    - npm run lint
+
+typecheck:
+  stage: typecheck
+  tags:
+    - students-buildkit-medium
+  script:
+    - npm ci --cache .npm --prefer-offline
+    - npm run typecheck
+
+build:
+  stage: build
+  tags:
+    - students-buildkit-medium
+  script:
+    - npm ci --cache .npm --prefer-offline
+    - npm run build
